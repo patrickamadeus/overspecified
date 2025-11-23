@@ -8,7 +8,7 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 
 def process_row(row_data, args_dict):
     idx, row = row_data
-    prompt = row['Example']
+    prompt = row['prompt']
 
     overspec = Overspecifier(
         prompt=prompt,
@@ -20,20 +20,23 @@ def process_row(row_data, args_dict):
     )
 
     tokens = overspec.generate_token_structure(verbose=False)
+    overspecified_prompts = overspec.generate_overspecified_prompt_from_tokens(tokens)
+    
     result = {
         "prompt": prompt,
+        "expanded_prompt": overspecified_prompts,
         "attr_per_token": [token.model_dump() for token in tokens]
     }
     return (idx, result, prompt)
 
 def main():
     parser = argparse.ArgumentParser(description="Tokenize and analyze prompts from a CSV file with overspecifier.")
-    parser.add_argument("--csv_path", type=str, default="csv/tc1.csv", help="Path to the input CSV file containing prompts")
-    parser.add_argument("--output_path", type=str, default="results/tc1.jsonl", help="Path to output JSONL file")
+    parser.add_argument("--csv_path", type=str, default="csv/tc.csv", help="Path to the input CSV file containing prompts")
+    parser.add_argument("--output_path", type=str, default="results/tc.jsonl", help="Path to output JSONL file")
     parser.add_argument("--model", type=str, default="gpt-4.1-nano", help="OpenAI model to use")
     parser.add_argument("--max_attrs_per_object", type=int, default=3, help="Max attributes per object")
     parser.add_argument("--max_values_per_attribute", type=int, default=5, help="Max values per attribute")
-    parser.add_argument("--seed", type=int, default=42, help="Random seed")
+    parser.add_argument("--seed", type=int, default=69, help="Random seed")
     parser.add_argument("--limit", type=int, default=3, help="Limit the number of rows to process from CSV")
     parser.add_argument("--num_workers", type=int, default=4, help="Number of parallel workers (processes)")
     args = parser.parse_args()

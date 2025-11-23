@@ -1,0 +1,64 @@
+prompt,category
+a person,one_object
+a bed,one_object
+a bike,one_object
+a car,one_object
+a chair,one_object
+a table,one_object
+a truck,one_object
+A person is asleep in a bed.,two_objects
+A person rides a bike.,two_objects
+A person is driving a car.,two_objects
+A person is sitting on a chair.,two_objects
+A person is eating at a table.,two_objects
+A person unloads a truck.,two_objects
+A bed and a chair are in the same room.,two_objects
+A small table stands beside a bed.,two_objects
+A bed is interacting with a bike.,two_objects
+A bed is interacting with a car.,two_objects
+A bed is interacting with a truck.,two_objects
+A bike is strapped to the roof of a car.,two_objects
+A bike is parked near a chair.,two_objects
+A bike is parked near a table.,two_objects
+A bike is interacting with a truck.,two_objects
+A car is parked near a chair.,two_objects
+A car is parked near a table.,two_objects
+A car follows a truck on the highway.,two_objects
+A chair is placed against a bed.,two_objects
+A chair is interacting with a truck.,two_objects
+A table is placed against a bed.,two_objects
+A person sits on a chair beside a table.,three_objects
+A person is working on a table while sitting in bed.,three_objects
+A person is used to move a bike near a car.,three_objects
+A person is used to move a bike near a chair.,three_objects
+A person is used to move a bike near a table.,three_objects
+A person is used to move a bike near a truck.,three_objects
+A person is used to move a car near a chair.,three_objects
+A person is used to move a car near a table.,three_objects
+A person exits a car after being towed by a truck.,three_objects
+A person is used to move a chair near a table.,three_objects
+A person is used to move a chair near a truck.,three_objects
+A person is used to move a table near a truck.,three_objects
+A bed is used to move a bike near a car.,three_objects
+A bed is used to move a bike near a chair.,three_objects
+A bed is used to move a bike near a table.,three_objects
+A bed is used to move a bike near a truck.,three_objects
+A bed is used to move a car near a chair.,three_objects
+A bed is used to move a car near a table.,three_objects
+A bed is used to move a car near a truck.,three_objects
+A bed is used to move a chair near a table.,three_objects
+A bed is used to move a chair near a truck.,three_objects
+A bed is used to move a table near a truck.,three_objects
+A bike is strapped to the roof of a car.,three_objects
+A bike is stored in a garage containing a chair and a table.,three_objects
+A bike is used to move a chair near a truck.,three_objects
+A bike is used to move a table near a truck.,three_objects
+A bike is interacting with a car.,three_objects
+A car is stored in a garage containing a bed and a chair.,three_objects
+A car is stored in a garage containing a bed and a table.,three_objects
+A car follows a truck on the highway.,three_objects
+A car is used to move a chair near a truck.,three_objects
+A car is used to move a table near a truck.,three_objects
+A chair is stored in a garage containing a bed and a table.,three_objects
+A chair is used to move a table near a truck.,three_objects
+A table is used to move a truck near a bed.,three_objects

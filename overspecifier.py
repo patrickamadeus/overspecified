@@ -340,6 +340,28 @@ class Overspecifier:
         
         return tokens
 
+    def generate_overspecified_prompt_from_tokens(self, tokens: List[Token], pseudoseed: Optional[int] = None) -> str:
+        # if pseudoseed is None:
+        pseudoseed = 4312
+        prompts = []
+        
+        for j in range(10):
+            i = 0
+            attribute_map = {}
+            for token in tokens:
+                attributes = [attr for attr in token.attributes if attr.is_contrasting]
+                if not attributes:
+                    attributes = token.attributes
+                if attributes:
+                    rnd = random.Random(self.seed+j+i+pseudoseed)
+                    selected_attr = rnd.choice(attributes)
+                    token_attr_map = {selected_attr.name: rnd.choice(selected_attr.values)}
+                    attribute_map[token.text.lower().strip('.,!?;:')] = token_attr_map
+                    i += 1
+            overspecified_prompt = self.expand_prompt(attribute_map=attribute_map)
+            prompts.append(overspecified_prompt)
+        return prompts
+
     def pipeline(self, verbose: bool = False) -> List[str]:
         if verbose:
             print(f"Original prompt: {self.prompt}\n")
